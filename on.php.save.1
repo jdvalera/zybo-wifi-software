@@ -1,0 +1,12 @@
+<?php
+echo "Turn on LED";
+//$output = shell_exec("cat /sys/class/gpio/gpio54/value");
+$test = shell_exec("cat txt");
+echo $test;
+//xy
+echo $output;
+shell_exec(" echo 54 > /sys/class/gpio/export ");
+shell_exec(" echo out > /sys/class/gpio/gpio54/direction ");
+shell_exec(" echo 1 > /sys/class/gpio/gpio54/value ");
+
+?>

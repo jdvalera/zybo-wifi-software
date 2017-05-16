@@ -1,0 +1,7 @@
+<?php
+exec("date");
+system(" echo 55 > /sys/class/gpio/export ");
+system(" echo out > /sys/class/gpio/gpio55/direction ");
+system(" echo 1 > /sys/class/gpio/gpio55/value ");
+
+?>

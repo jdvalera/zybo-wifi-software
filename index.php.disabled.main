@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jquery-3.2.1.min.js"></script>
+<script src="bootstrap.min.js"></script>
+<link href="bootstrap.min.css" rel="stylesheet">
+<link href="starter-template.css" rel="stylesheet">
+<script type="text/javascript">// <![CDATA[
+
+$(document).ready(function() {
+
+$('#on').click(function(){
+
+var a= new XMLHttpRequest();
+
+a.open("GET", "up.php"); a.onreadystatechange=function(){
+
+if(a.readyState==4){ if(a.status ==200){
+
+ } else alert ("http error"); } }
+
+a.send();
+
+});
+
+});
+
+$(document).ready(function()
+
+{ $('#off').click(function(){
+
+var a= new XMLHttpRequest();
+
+a.open("GET", "off.php");
+
+a.onreadystatechange=function(){
+
+if(a.readyState==4){
+
+if(a.status ==200){
+
+ } else alert ("http error"); } }
+
+a.send();
+
+});
+
+});
+
+$(document).ready(function()
+
+{ $('#on').mousedown(function() {
+    <?php
+      shell_exec("/var/www/led /dev/uio0 4096 15 ");
+    ?>
+});
+});
+
+$(document).ready(function()
+
+{ $('#on').mouseup(function() {
+   <?php
+      shell_exec("/var/www/led /dev/uio0 4096 15 ");
+   ?>
+});
+});
+
+</script>
+</head>
+
+<body>
+<div class="container">
+    <div class="starter-template">
+        <h1>Wifi Test</h1>
+        <br>
+    <button id="on" type="button"> Switch Lights On </button>
+    <button id="off" type="button"> Switch Lights Off </button>
+</div>
+</body>
+</html>

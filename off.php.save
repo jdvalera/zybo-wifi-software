@@ -1,0 +1,7 @@
+<?php
+echo $output;
+shell_exec(" echo 54 > /sys/class/gpio/export ");
+shell_exec(" echo out > /sys/class/gpio/gpio54/direction ");
+shell_exec(" echo 0 > /sys/class/gpio/gpio54/value ");
+
+?>
